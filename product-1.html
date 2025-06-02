@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Page - RedStore</title>
+</head>
+<body>
+
+  <div style="max-width:1200px; margin:auto; padding: 20px;">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+      <div>
+        <img src="https://cdn1.iconfinder.com/data/icons/shopping-e-commerce-part-3/33/global_shopping-1024.png" alt="Logo" width="50" />
+      </div>
+      <nav>
+        <ul id="MenuItems" style="list-style:none; display:flex; gap:20px; padding:0; margin:0;">
+          <li><a href="#" style="text-decoration:none; color:#333;">Home</a></li>
+          <li><a href="#" style="text-decoration:none; color:#333;">Product</a></li>
+          <li><a href="#" style="text-decoration:none; color:#333;">About</a></li>
+          <li><a href="#" style="text-decoration:none; color:#333;">Contact</a></li>
+          <li><a href="#" style="text-decoration:none; color:#333;">Account</a></li>
+        </ul>
+      </nav>
+      <img src="https://cdn-icons-png.flaticon.com/512/1828/1828859.png" alt="Menu Icon" width="25" height="25" style="cursor:pointer;" onclick="menutoggle()" />
+    </div>
+
+    <div style="display:flex; gap:20px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:300px;">
+        <img src="https://cdn.pixabay.com/photo/2016/03/27/19/59/tshirt-1284354_1280.jpg" alt="Main Product" id="ProductImg" style="width:100%; max-width:400px;" />
+        <div style="display:flex; gap:10px; margin-top:10px;">
+          <img src="https://cdn.pixabay.com/photo/2016/03/27/19/59/tshirt-1284354_1280.jpg" alt="Small Img 1" class="small-img" style="width:80px; cursor:pointer;" />
+          <img src="https://cdn.pixabay.com/photo/2016/03/27/19/59/tshirt-1284354_640.jpg" alt="Small Img 2" class="small-img" style="width:80px; cursor:pointer;" />
+          <img src="https://cdn.pixabay.com/photo/2015/04/10/00/41/shirt-714502_1280.jpg" alt="Small Img 3" class="small-img" style="width:80px; cursor:pointer;" />
+        </div>
+      </div>
+
+      <div style="flex:1; min-width:300px;">
+        <p>Home / T-shirts</p>
+        <h1>Red Printed T-shirt by HRX</h1>
+        <h4>$499</h4>
+        <select id="sizeSelect" style="padding:8px; margin-top:10px; width:120px;">
+          <option>Select Size</option>
+          <option>XXL</option>
+          <option>XL</option>
+          <option>L</option>
+          <option>M</option>
+          <option>S</option>
+          <option>For KIDS</option>
+        </select>
+        <input type="number" id="quantity" value="1" min="1" style="padding:8px; width:60px; margin-left:10px; margin-top:10px;" />
+        <br />
+        <button style="margin-top:15px; padding:10px 25px; background:#ff523b; color:white; border:none; cursor:pointer;" onclick="addToCart()">Add to Cart</button>
+        <h3 style="margin-top:20px;">Product Details</h3>
+        <p>
+          A customized cotton T-shirt from HRX is a great way to advertise your business or message.
+          With our easy-to-use online design studio, you can add your company logo or text to custom men's
+          round neck T-shirts suitable for work, leisure, or promotional giveaways.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle menu for mobile (dummy example)
+    function menutoggle() {
+      const menu = document.getElementById('MenuItems');
+      if (menu.style.display === 'flex') {
+        menu.style.display = 'none';
+      } else {
+        menu.style.display = 'flex';
+      }
+    }
+
+    // Change main product image when small images are clicked
+    const smallImgs = document.querySelectorAll('.small-img');
+    const productImg = document.getElementById('ProductImg');
+    smallImgs.forEach(img => {
+      img.addEventListener('click', () => {
+        productImg.src = img.src;
+      });
+    });
+
+    // Add to Cart functionality (basic alert demo)
+    function addToCart() {
+      const size = document.getElementById('sizeSelect').value;
+      const qty = document.getElementById('quantity').value;
+      if(size === "Select Size") {
+        alert('Please select a size.');
+        return;
+      }
+      alert(`Added ${qty} item(s) of size ${size} to cart.`);
+    }
+  </script>
+
+</body>
+</html>
